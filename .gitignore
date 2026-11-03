@@ -1,0 +1,12 @@
+study-web/node_modules/
+study-web/dist/
+study-server/target/
+.idea/
+.vscode/
+*.iml
+.env*
+*.log
+data/
+runtime/
+release/
+__pycache__/

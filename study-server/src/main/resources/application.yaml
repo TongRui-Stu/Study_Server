@@ -1,0 +1,43 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: study-server
+
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 6MB
+
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/study_system?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:}
+    expiration-ms: 86400000
+  ai:
+    deepseek:
+      api-key: ${DEEPSEEK_API_KEY:}
+      base-url: ${DEEPSEEK_BASE_URL:https://api.deepseek.com}
+      model: ${DEEPSEEK_MODEL:deepseek-flash}
+      connect-timeout-ms: ${DEEPSEEK_CONNECT_TIMEOUT_MS:5000}
+      read-timeout-ms: ${DEEPSEEK_READ_TIMEOUT_MS:60000}
+    qwen:
+      api-key: ${QWEN_API_KEY:}
+      base-url: ${QWEN_BASE_URL:https://dashscope.aliyuncs.com/compatible-mode/v1}
+      model: ${QWEN_MODEL:qwen3.8-flash}
+      connect-timeout-ms: ${QWEN_CONNECT_TIMEOUT_MS:5000}
+      read-timeout-ms: ${QWEN_READ_TIMEOUT_MS:60000}
